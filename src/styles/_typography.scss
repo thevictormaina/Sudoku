@@ -1,0 +1,104 @@
+@use "colors" as *;
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@500;600;700;800&display=swap');
+
+:root {
+    --font-primary: 'Nunito', sans-serif;
+
+    // Base values
+    --text-base-size: 1em;
+    --text-scale-ratio: 1.2;
+
+    // Type scales
+    --text-xs: calc(1em / var(--text-scale-ratio) / var(--text-scale-ratio));
+    --text-sm: calc(1em / var(--text-scale-ratio));
+    --text-md: calc(1em * var(--text-scale-ratio));
+    --text-lg: calc(1em * var(--text-scale-ratio) * var(--text-scale-ratio));
+    --text-xl: calc(1em * var(--text-scale-ratio) * var(--text-scale-ratio) * var(--text-scale-ratio));
+    --text-xxl: calc(1em * var(--text-scale-ratio) * var(--text-scale-ratio) * var(--text-scale-ratio) * var(--text-scale-ratio));
+    --text-xxxl: calc( 1em * var(--text-scale-ratio) * var(--text-scale-ratio) * var(--text-scale-ratio) * var(--text-scale-ratio) * var(--text-scale-ratio));
+}
+
+// Change base values for larger screen sizes
+@media screen and (min-width: 1024px) {
+    :root {
+        // Base values
+        --text-base-size: 1.25em;
+        --text-scale-ratio: 1.25;
+    }
+}
+
+body {
+    font-size: var(--text-base-size);
+    font-family: var(--font-primary);
+    color: var(--color-text);
+    font-weight: 500;
+}
+
+// Text size
+.text-xxxl {
+    font-size: var(--text-xxxl);
+}
+
+h1,
+.text-xxl {
+    font-size: var(--text-xxl);
+}
+
+h2,
+.text-xl {
+    font-size: var(--text-xl);
+}
+
+h3,
+.text-lg {
+    font-size: var(--text-lg);
+}
+
+h4,
+.text-md {
+    font-size: var(--text-md);
+}
+
+.text-sm,
+small {
+    font-size: var(--text-sm);
+}
+
+.text-xs {
+    font-size: var(--text-xs);
+}
+
+a {
+    $link-color: get-color("magenta");
+    color: $link-color;
+    transition: 200ms;
+
+    &:hover {
+        color: darken($link-color, 0.2);
+    }
+}
+
+.truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+body, .semibold {
+    font-weight: 600;
+}
+
+.bold {
+    font-weight: 700;
+}
+
+.bolder {
+    font-weight: 800;
+}
+
+// Generate color class for text
+@each $color, $val in $colors {
+    .text-#{$color} {
+        color: $val;
+    }
+}

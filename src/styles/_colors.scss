@@ -1,0 +1,33 @@
+$colors: (
+    "black": #000,
+    "white": #000,
+    "gray-1": #1a1a1a,
+    "gray-2": #4d4d4d,
+    "purple": #531CB3,
+    "magenta": #B51C7D,
+    "green": #1CB554,
+    "red": #B51C31,
+    "blue": #1C4AB5,
+    "light-purple-1": #D1BCF6,
+    "light-purple-2": #E7DCF9,
+    "light-purple-3": #EAE0FB,
+    "light-purple-4": #F3EDFC,
+    "light-purple-5": #F9F6FE,
+    "light-purple-6": #FAF5FF,
+    "light-magenta": #FCE9F5,
+    "light-red": #FEF6F7,
+    "light-green-1": #DCFAE7,
+    "light-green-2": #FBFEFC,
+    "light-blue-1": #E0E8FA,
+    "light-blue-2": #FBFCFE
+);
+
+@function get-color($key){
+    @return map-get($colors, $key);
+}
+
+:root {
+    @each $color, $val in $colors {
+        --#{$color}: #{$val};
+    }
+}

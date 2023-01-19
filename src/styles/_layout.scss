@@ -1,0 +1,15 @@
+$gap-horizontal: 10px;
+$gap-vertical: $gap-horizontal;
+
+@mixin grid {
+    @supports(grid-area: auto) {
+        display: grid;
+        column-gap: $gap-horizontal;
+        row-gap: $gap-vertical;
+    }
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+}
