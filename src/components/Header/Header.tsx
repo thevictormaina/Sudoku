@@ -1,6 +1,5 @@
-import { CSSProperties } from "react"
-import logo from "../assets/logo.svg"
-import style from "../styles/modules/header.module.scss"
+import logo from "../../assets/logo.svg"
+import style from "./header.module.scss"
 
 export default function Header() {
     return (

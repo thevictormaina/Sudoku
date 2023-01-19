@@ -1,0 +1,21 @@
+@use '../../styles/layout' as *;
+
+.footer {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    padding: var(--space-xs);
+    border-top: 1px solid var(--light-purple-2);
+    column-gap: 2rem;
+    row-gap: .3rem;
+    
+    @include flex('sm');
+}
+
+.buyMeACoffee a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .2em;
+    color: var(--purple);
+}

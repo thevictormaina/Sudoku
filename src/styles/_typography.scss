@@ -59,7 +59,7 @@ h4,
     font-size: var(--text-md);
 }
 
-.text-sm,
+.text-sm, .small,
 small {
     font-size: var(--text-sm);
 }
@@ -72,6 +72,7 @@ a {
     $link-color: get-color("magenta");
     color: $link-color;
     transition: 200ms;
+    text-decoration: none;
 
     &:hover {
         color: darken($link-color, 0.2);

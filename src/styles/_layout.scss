@@ -1,15 +1,23 @@
-$gap-horizontal: 10px;
-$gap-vertical: $gap-horizontal;
+@use './media_queries' as *;
 
-@mixin grid {
-    @supports(grid-area: auto) {
-        display: grid;
-        column-gap: $gap-horizontal;
-        row-gap: $gap-vertical;
-    }
+@mixin container {
+    max-width: 1200px;
+    margin: auto;
 }
 
 .container {
-    max-width: 1200px;
-    margin: auto;
+    @include container();
+}
+
+@mixin flex($bp) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    @include mq($bp){
+        flex-direction: row;
+        justify-content: center;
+    }
+    
+    @content;
 }
