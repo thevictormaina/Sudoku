@@ -6,7 +6,7 @@
     display: grid;
     gap: var(--space-sm);
     margin-bottom: var(--space-lg);
-    max-width: 30rem;
+    max-width: 25rem;
 
     @include mq('md'){
         max-width: 1200px;
