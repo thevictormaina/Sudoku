@@ -4,10 +4,6 @@
     max-width: 1200px;
     margin: auto;
     padding: var(--space-sm);
-
-    @include mq('xl'){
-        padding: 0;
-    }
 }
 
 .container {

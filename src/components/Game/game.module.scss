@@ -6,10 +6,10 @@
     display: grid;
     gap: var(--space-sm);
     margin-bottom: var(--space-lg);
-    max-width: 25rem;
+    max-width: 20rem;
 
     @include mq('md'){
-        max-width: 1200px;
+        max-width: 900px;
         margin-bottom: var(--space-xl);
     }
 

@@ -15,7 +15,7 @@ export default function GameHeader() {
                 </a>
             </div>
             <div className={style.gameDetails}>
-                <div className="text-purple bold">1 / 3 Mistakes</div>
+                <div className="text-gray-2 small bold">1 / 3 Mistakes</div>
                 <Timer />
             </div>
         </header>

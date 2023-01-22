@@ -1,9 +1,18 @@
-type LinkProps = { text: string; href: string; target: string }
+import { Icon } from "@iconify/react"
+import { PropsWithChildren } from "react";
+import style from './link.module.scss'
+import { IconifyIcon } from "@iconify/react";
 
-export default function Link({ text, href, target }: LinkProps) {
+
+type LinkProps = { href: string; target?: string, icon?: IconifyIcon }
+
+export default function Link(props: LinkProps & PropsWithChildren) {
+    let { href, icon, target = '_blank' }: LinkProps = props;
+    
     return (
-        <a href={href} target={target}>
-            {text}
+        <a className={style.link} href={href} target={target}>
+            { props.children }
+            <Icon icon={icon || 'mdi:external-link'} />
         </a>
     )
 }

@@ -15,6 +15,7 @@
 .actionLinks {
     display: flex;
     font-size: var(--text-sm);
+    font-weight: 600;
     justify-content: space-between;
     flex: 1;
 
@@ -25,7 +26,6 @@
     }
 
     @include mq('md'){
-        font-size: var(--text-base-size);
         gap: var(--space-md);
         justify-content: start;
     }

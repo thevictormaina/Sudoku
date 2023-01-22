@@ -1,0 +1,32 @@
+@use "../../styles/media_queries" as *;
+
+.imageWrapper {
+    $size: 100%;
+    position: relative;
+    margin: 0;
+    display: grid;
+    place-items: center;
+    padding: var(--space-xxs);
+    border: 2px solid var(--gray-2);
+    border-radius: 10px;
+    width: $size;
+    padding-bottom: calc($size + 5rem);
+    
+
+    img {
+        z-index: 0;
+        position: absolute;
+        border-radius: 10px;
+        width: calc(100% - 8px);
+        height: calc(100% - 8px);
+        object-fit: cover;
+    }
+}
+
+.figure {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    text-align: left;
+}

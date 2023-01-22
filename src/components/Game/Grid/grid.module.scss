@@ -1,18 +1,20 @@
 @use "../../../styles/media_queries" as *;
 
-.grid {
-    height: 100%;
+.gridWrapper {
+    position: relative;
+    height: 0%;
     width: 100%;
-    aspect-ratio: 1;
+    padding-bottom: 100%;
     border-radius: 10px;
     border: 2px solid var(--purple);
     background-color: var(--light-purple-3);
-    
-    @include mq('sm'){
-        max-width: 500px;
+
+    @include mq("md") {
+        width: 60%;
+        padding-bottom: 60%;
     }
-    
-    @include mq('lg'){
+
+    @include mq("lg") {
         max-width: 650px;
     }
 }

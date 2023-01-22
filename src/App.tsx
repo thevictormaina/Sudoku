@@ -8,8 +8,8 @@ function App() {
         <>
             <Header />
             <Game />
-            <Footer />
             <AboutSection />
+            <Footer />
         </>
     )
 }

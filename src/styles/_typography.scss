@@ -16,13 +16,15 @@
     --text-xl: calc(var(--text-base-size) * var(--text-scale-ratio) * var(--text-scale-ratio) * var(--text-scale-ratio));
     --text-xxl: calc(var(--text-base-size) * var(--text-scale-ratio) * var(--text-scale-ratio) * var(--text-scale-ratio) * var(--text-scale-ratio));
     --text-xxxl: calc(var(--text-base-size) * var(--text-scale-ratio) * var(--text-scale-ratio) * var(--text-scale-ratio) * var(--text-scale-ratio) * var(--text-scale-ratio));
+
+    --color-text: var(--gray-1);
 }
 
 // Change base values for larger screen sizes
 @media screen and (min-width: 1024px) {
     :root {
         // Base values
-        --text-base-size: 1.25rem;
+        --text-base-size: 1.125rem;
         --text-scale-ratio: 1.25;
     }
 }
