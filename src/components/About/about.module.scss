@@ -3,7 +3,7 @@
 
 .section {
     background-color: var(--light-purple-6);
-    padding: var(--space-md) var(--space-);
+    padding: var(--space-md) var(--space-md);
 
     @include mq("md") {
         padding: var(--space-lg) var(--space-lg);
