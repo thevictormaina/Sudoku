@@ -1,0 +1,25 @@
+@use "../../styles/layout" as *;
+@use "../../styles/media_queries" as *;
+
+.container {
+    @include container;
+    display: grid;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-lg);
+    max-width: 30rem;
+
+    @include mq('md'){
+        max-width: 1200px;
+        margin-bottom: var(--space-xl);
+    }
+
+    main {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-md);
+
+        @include mq('md'){
+            flex-direction: row;
+        }
+    }
+}

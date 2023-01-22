@@ -1,0 +1,18 @@
+@use "../../../styles/media_queries" as *;
+
+.grid {
+    height: 100%;
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 10px;
+    border: 2px solid var(--purple);
+    background-color: var(--light-purple-3);
+    
+    @include mq('sm'){
+        max-width: 500px;
+    }
+    
+    @include mq('lg'){
+        max-width: 650px;
+    }
+}

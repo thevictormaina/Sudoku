@@ -1,0 +1,43 @@
+@use '../../../styles/media_queries' as *;
+
+.header {
+    display: flex;
+    flex-direction: column;
+    row-gap: var(--space-sm);
+    
+    @include mq('md'){
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: row;
+    }
+}
+
+.actionLinks {
+    display: flex;
+    font-size: var(--text-sm);
+    justify-content: space-between;
+    flex: 1;
+
+    a {
+        display: flex;
+        align-items: center;
+        column-gap: var(--space-xs);
+    }
+
+    @include mq('md'){
+        font-size: var(--text-base-size);
+        gap: var(--space-md);
+        justify-content: start;
+    }
+}
+
+.gameDetails {
+    display: flex;
+    justify-content: space-between;
+    column-gap: var(--space-md);
+    align-items: center;
+
+    @include mq('md'){
+        justify-content: center;
+    }
+}

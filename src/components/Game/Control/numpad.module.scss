@@ -1,0 +1,52 @@
+@use '../../../styles/media_queries' as *;
+
+.numpad {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: var(--space-xs);
+    border-radius: 10px;
+    overflow: hidden;
+    
+    @include mq('md'){
+        grid-template-columns: repeat(3, 1fr);
+        flex: 1;
+    }
+}
+
+@mixin numkey {
+    background-color: var(--light-blue-1);
+    display: grid;
+    align-content: center;
+    place-content: center;
+    color: var(--blue);
+    cursor: pointer;
+    transition: 200ms;
+    font-weight: bold;
+    border: none;
+    outline: none;
+    // border-radius: 0;
+    font-size: var(--text-md);
+
+
+    &:hover {
+        // transform: scale(1.05);
+        box-shadow: 0 0 10px rgba(#1c4ab5, .2) inset;
+        z-index: 5;
+    }
+}
+
+.numkey {
+    @include numkey;
+}
+
+.numkeyErase {
+    @include numkey();
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    
+    @include mq('md'){
+        grid-column: 1 / span 3;
+    }
+}

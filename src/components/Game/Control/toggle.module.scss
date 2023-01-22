@@ -1,0 +1,60 @@
+.toggleWrapper {
+    display: flex;
+    align-items: center;
+    column-gap: var(--space-xs);
+}
+
+
+@mixin toggle {
+    overflow: hidden;
+    position: relative;
+    width: 2.6rem;
+    height: 1.3rem;
+    border-radius: 3rem;
+    border: 2px solid var(--green);
+    cursor: pointer;
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+}
+
+@mixin switch {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 1.3rem;
+    height: 1.3rem;
+    border-radius: 50%;
+    transition: 200ms;
+}
+.toggleOff {
+    @include toggle;
+    background-color: var(--white);
+    transition: box-shadow 200ms;
+
+    &:hover {
+        box-shadow: inset 0px 0 5px rgba(black, 0.2);
+    }
+
+    .switch {
+        @include switch();
+        background-color: var(--green);
+    }
+}
+
+.toggleOn {
+    @include toggle;
+    background-color: var(--green);
+    .switch {
+        @include switch();
+        background-color: var(--white);
+        transform: translateX(100%);
+        box-shadow: 0px 0 10px rgba(black, 0.3);
+    }
+
+    &:hover {
+        .switch {
+            box-shadow: 0px 0 10px rgba(black, 0.6);
+        }
+    }
+}

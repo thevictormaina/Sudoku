@@ -5,24 +5,24 @@
     --font-primary: 'Nunito', sans-serif;
 
     // Base values
-    --text-base-size: 1em;
+    --text-base-size: 1rem;
     --text-scale-ratio: 1.2;
 
     // Type scales
-    --text-xs: calc(1em / var(--text-scale-ratio) / var(--text-scale-ratio));
-    --text-sm: calc(1em / var(--text-scale-ratio));
-    --text-md: calc(1em * var(--text-scale-ratio));
-    --text-lg: calc(1em * var(--text-scale-ratio) * var(--text-scale-ratio));
-    --text-xl: calc(1em * var(--text-scale-ratio) * var(--text-scale-ratio) * var(--text-scale-ratio));
-    --text-xxl: calc(1em * var(--text-scale-ratio) * var(--text-scale-ratio) * var(--text-scale-ratio) * var(--text-scale-ratio));
-    --text-xxxl: calc( 1em * var(--text-scale-ratio) * var(--text-scale-ratio) * var(--text-scale-ratio) * var(--text-scale-ratio) * var(--text-scale-ratio));
+    --text-xs: calc(var(--text-base-size) / var(--text-scale-ratio) / var(--text-scale-ratio));
+    --text-sm: calc(var(--text-base-size) / var(--text-scale-ratio));
+    --text-md: calc(var(--text-base-size) * var(--text-scale-ratio));
+    --text-lg: calc(var(--text-base-size) * var(--text-scale-ratio) * var(--text-scale-ratio));
+    --text-xl: calc(var(--text-base-size) * var(--text-scale-ratio) * var(--text-scale-ratio) * var(--text-scale-ratio));
+    --text-xxl: calc(var(--text-base-size) * var(--text-scale-ratio) * var(--text-scale-ratio) * var(--text-scale-ratio) * var(--text-scale-ratio));
+    --text-xxxl: calc(var(--text-base-size) * var(--text-scale-ratio) * var(--text-scale-ratio) * var(--text-scale-ratio) * var(--text-scale-ratio) * var(--text-scale-ratio));
 }
 
 // Change base values for larger screen sizes
 @media screen and (min-width: 1024px) {
     :root {
         // Base values
-        --text-base-size: 1.25em;
+        --text-base-size: 1.25rem;
         --text-scale-ratio: 1.25;
     }
 }
@@ -69,13 +69,12 @@ small {
 }
 
 a {
-    $link-color: get-color("magenta");
-    color: $link-color;
-    transition: 200ms;
+    color: get-color("purple");
     text-decoration: none;
+    transition: 200ms;
 
     &:hover {
-        color: darken($link-color, 0.2);
+        color: lighten(get-color("purple"), 10);
     }
 }
 
@@ -85,7 +84,7 @@ a {
     white-space: nowrap;
 }
 
-body, .semibold {
+body, .sremibold {
     font-weight: 600;
 }
 

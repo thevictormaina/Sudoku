@@ -1,0 +1,26 @@
+@use "../../../styles/media_queries" as *;
+
+.control {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    row-gap: var(--space-md);
+    justify-content: space-between;
+    min-width: 12rem;
+
+    @include mq('md'){
+        min-width: 15rem;
+    }
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.footer {
+    display: flex;
+    gap: var(--space-xs);
+    flex-direction: column;
+}

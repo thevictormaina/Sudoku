@@ -1,13 +1,18 @@
 @use '../../styles/layout' as *;
+@use "../../styles/media_queries" as *;
 
 .footer {
     width: 100%;
-    position: fixed;
-    bottom: 0;
     padding: var(--space-xs);
     border-top: 1px solid var(--light-purple-2);
+    background-color: var(--white);
     column-gap: 2rem;
     row-gap: .3rem;
+    
+    @include mq('sm'){
+        position: fixed;
+        bottom: 0;
+    }
     
     @include flex('sm');
 }

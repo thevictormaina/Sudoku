@@ -1,0 +1,54 @@
+@use "./colors" as *;
+
+@function bgFontColor($bgColor) {
+    @if (lightness($bgColor) > 60) {
+        @return map-get($colors, "dark-1");
+    } @else {
+        @return map-get($colors, "white");
+    }
+}
+
+@mixin button($borderRadius) {
+    font-family: var(--font-primary);
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: $borderRadius;
+    border: none;
+    outline: none;
+    font-size: var(--text-base-size);
+    transition: 200ms;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: var(--space-xxs);
+    font-weight: bold;
+    cursor: pointer;
+    @content;
+}
+
+button {
+    @include button(10px);
+}
+
+// Generate button classes
+@each $color, $val in $colors {
+    .button-#{$color} {
+        background-color: $val;
+        color: bgFontColor($val);
+
+        &:hover {
+            background-color: lighten($val, 10);
+            box-shadow: inset 0 0 7px rgba(black, 0.2);
+        }
+    }
+
+    .button-#{$color}-outline {
+        background-color: white;
+        box-shadow: inset 0 0 0 2px $val;
+        color: $val;
+
+        &:hover {
+            box-shadow: inset 0 0 0 2px lighten($val, 10), inset 0 0 7px 2px rgba(black, 0.2);
+            color: lighten($val, 10);
+        }
+    }
+}
