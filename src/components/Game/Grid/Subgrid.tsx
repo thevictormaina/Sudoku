@@ -1,4 +1,4 @@
-import { range } from "../../../utils"
+import { range } from "../../../shared/services/utils"
 import Cell from "./Cell"
 import style from "./subgrid.module.scss"
 
