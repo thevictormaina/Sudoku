@@ -1,13 +1,10 @@
 @use "../../../styles/media_queries" as *;
 
-.gridWrapper {
+.outerWrapper {
     position: relative;
     height: 0%;
     width: 100%;
     padding-bottom: 100%;
-    border-radius: 10px;
-    border: 2px solid var(--purple);
-    background-color: var(--light-purple-3);
 
     @include mq("md") {
         width: 60%;
@@ -17,4 +14,16 @@
     @include mq("lg") {
         max-width: 650px;
     }
+}
+
+.innerWrapper {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+
+    display: grid;
+    grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+    gap: var(--space-xxs);
 }
