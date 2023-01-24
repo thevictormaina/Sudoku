@@ -39,10 +39,10 @@ export function validateRow(
     cellPosition: CellPosition,
     grid: SudokuGrid
 ): boolean {
-    const sqrtGridSize = Math.sqrt(grid.length)
+    const gridSize = grid.length
     const { row } = cellPosition
 
-    for (let col = 0; col < sqrtGridSize; col++) {
+    for (let col = 0; col < gridSize; col++) {
         if (grid[row][col] === value) return false
     }
 
@@ -82,7 +82,7 @@ export function fillSubgrid(
     grid: SudokuGrid
 ): SudokuGrid {
     const gridSize = grid.length
-    const sqrtGridSize = Math.sqrt(grid.length)
+    const sqrtGridSize = Math.sqrt(gridSize)
     const { row, col } = cellPosition
 
     for (let i = 0; i < sqrtGridSize; i++) {
@@ -114,45 +114,55 @@ export function fillDiagonalSubgrids(grid: SudokuGrid): SudokuGrid {
 export function fillRemaining(
     cellPosition: CellPosition,
     grid: SudokuGrid
-): [boolean, SudokuGrid] {
-    const gridSize = grid.length
-    let { row, col } = cellPosition
+): SudokuGrid {
+    let newGrid = [...grid]
+    const gridSize = newGrid.length
+    const { row, col } = cellPosition
 
-    // Check for end of grid
-    if (row === gridSize - 1 && col === gridSize) {
-        return [true, grid]
-    }
-
-    // Move to the next row
-    if (col === gridSize) {
-        row += 1
-        col = 0
-    }
-
-    // Skip filled cells
-    if (grid[row][col] !== 0) {
-        return fillRemaining({ row: row, col: col + 1 }, grid)
-    }
-
-    // Check if current cell is valid and fill it
-    for (let num = 1; num <= gridSize; num++) {
-        if (isSafe(num, cellPosition, grid)) {
-            grid[row][col] = num
-
-            if (fillRemaining({ row: row, col: col + 1 }, grid)[0])
-                return [true, grid]
-
-            grid[row][col] = 0
+    function fillGrid(row: number, col: number): boolean {
+        // Check for end of grid
+        if (row === gridSize - 1 && col === gridSize) {
+            return true
         }
+
+        // Move to the next row
+        if (col === gridSize) {
+            row += 1
+            col = 0
+        }
+
+        // Skip filled cells
+        if (newGrid[row][col] !== 0) {
+            return fillGrid(row, col + 1)
+        }
+
+        // Check if current cell is valid and fill it
+        for (let num = 1; num <= gridSize; num++) {
+            if (isSafe(num, cellPosition, newGrid)) {
+                newGrid[row][col] = num
+
+                if (fillGrid(row, col + 1)) return true
+
+                newGrid[row][col] = 0
+            }
+        }
+
+        return false
     }
 
-    return [false, grid]
+    fillGrid(row, col)
+
+    return newGrid
 }
 
 export function generateCompleteGrid(gridSize: number): SudokuGrid {
-    let grid = fillDiagonalSubgrids(createEmptyGrid(gridSize))
-    let sqrtGridSize = Math.sqrt(grid.length)
-    let completeGrid = fillRemaining({ row: 0, col: sqrtGridSize }, grid)[1]
+    const emptyGrid = createEmptyGrid(gridSize)
+    const sqrtGridSize = Math.sqrt(gridSize)
+    const diagonalGrid = fillDiagonalSubgrids(emptyGrid)
+    const completeGrid = fillRemaining(
+        { row: 0, col: sqrtGridSize },
+        diagonalGrid
+    )
 
     return completeGrid
 }

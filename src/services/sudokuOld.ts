@@ -1,3 +1,6 @@
+// This module had been deprecated. Use sudoku.ts instead.
+
+
 export type SudokuGrid = Array<number[]>
 
 export default class Sudoku {
@@ -10,6 +13,8 @@ export default class Sudoku {
         this.gridSize = gridSize
         this.sqrtGrid = Math.sqrt(gridSize)
         this.grid = this.createEmptyGrid(gridSize)
+
+        this.fillGrid()
     }
 
     createEmptyGrid(gridSize: number): SudokuGrid {

@@ -1,4 +1,4 @@
-import { range } from "../../../shared/services/utils"
+import { range } from "../../../services/utils"
 import Numkey from "./Numkey"
 import style from "./numpad.module.scss"
 import { Icon } from "@iconify/react"

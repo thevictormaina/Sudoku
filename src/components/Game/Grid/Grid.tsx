@@ -1,6 +1,6 @@
 import style from "./grid.module.scss"
 import Subgrid from "./Subgrid"
-import { range } from "../../../shared/services/utils"
+import { range } from "../../../services/utils"
 
 export default function Grid() {
     let subgrids = range(9).map((_, i) => <Subgrid key={i} subgridIndex={i}/>)

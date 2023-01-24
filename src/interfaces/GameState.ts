@@ -4,7 +4,7 @@ export type SudokuGrid = CellValue[][]
 
 export interface GameState {
     gridSize: number
-    sqrtGridSize: number
+    sqrtGridSize: (gridSize: number) => number
     unsolvedGrid: SudokuGrid
     completeGrid: SudokuGrid
     timeElapsed: number // number of seconds
