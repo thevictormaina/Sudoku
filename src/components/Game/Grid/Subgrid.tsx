@@ -1,15 +1,18 @@
+import { CellValue } from "../../../interfaces/CellState"
+import { SubgridState } from "../../../interfaces/SubgridState"
 import { range } from "../../../services/utils"
 import Cell from "./Cell"
 import style from "./subgrid.module.scss"
+import { useState } from "react"
 
-interface SubgridProps {
-    subgridIndex: number
-}
+interface SubgridProps extends SubgridState {}
 
-export default function Subgrid({ subgridIndex }: SubgridProps) {
-    let cells = range(9).map((num, i) => (
-        <Cell key={i} value={num - 1} subgridIndex={subgridIndex} />
-    ))
-
-    return <div className={style.subgrid}>{cells}</div>
+export default function Subgrid({ subgrid, subgridIndex }: SubgridProps) {
+    return (
+        <div className={style.subgrid}>
+            {subgrid.map((cell) => (
+                <Cell cell={cell} subgridIndex={subgridIndex} />
+            ))}
+        </div>
+    )
 }

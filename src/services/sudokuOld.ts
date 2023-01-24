@@ -1,9 +1,8 @@
 // This module had been deprecated. Use sudoku.ts instead.
 
+type SudokuGrid = Array<number[]>
 
-export type SudokuGrid = Array<number[]>
-
-export default class Sudoku {
+class Sudoku {
     gridSize: number
     sqrtGrid: number
     grid: SudokuGrid
@@ -147,3 +146,5 @@ export default class Sudoku {
         return this.unsolved
     }
 }
+
+export default {}

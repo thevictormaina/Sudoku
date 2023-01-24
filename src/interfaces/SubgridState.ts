@@ -1,6 +1,6 @@
-import { CellValue } from "./CellState"
+import { CellState, CellValue } from "./CellState"
 
 export interface SubgridState {
     subgridIndex: number
-    values: CellValue[]
+    subgrid: CellState[]
 }

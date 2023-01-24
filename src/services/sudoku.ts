@@ -155,17 +155,17 @@ export function generateCompleteGrid(gridSize: number): SudokuGrid {
 }
 
 export function unsolveGrid(grid: SudokuGrid, emptyCells: number) {
-    let gridSize = grid.length
+    const gridSize = grid.length
     let count = emptyCells
-    let unsolvedGrid = grid
+    let unsolvedGrid: SudokuGrid = JSON.parse(JSON.stringify(grid)) // create new copy of grid
 
     while (count !== 0) {
         let i = randomGenerator(gridSize) - 1
         let j = randomGenerator(gridSize) - 1
 
-        if (unsolvedGrid[i][j] !== 0) {
+        if (unsolvedGrid[i][j]) {
             count -= 1
-            unsolvedGrid[i][j] = 0
+            unsolvedGrid[i][j] = undefined
         }
     }
 

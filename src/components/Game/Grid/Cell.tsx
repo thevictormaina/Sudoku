@@ -1,13 +1,14 @@
 import style from "./cell.module.scss";
 import { PropsWithChildren, useState } from "react"
 import Subgird from "./Subgrid"
+import { CellState, CellValue } from "../../../interfaces/CellState";
 
 interface CellProps extends PropsWithChildren {
-    value: number
+    cell: CellState
     subgridIndex: number
 }
 
-export default function Cell({ value, subgridIndex }: CellProps) {
+export default function Cell({ cell, subgridIndex }: CellProps) {
     // let [classes, setClasses] = useState([]);
 
     let classes: string[] = [
@@ -18,5 +19,5 @@ export default function Cell({ value, subgridIndex }: CellProps) {
         // style.userfilled
     ]
 
-    return <div className={classes.join(" ")}>{value}</div>
+    return <div className={classes.join(" ")}>{cell.value}</div>
 }

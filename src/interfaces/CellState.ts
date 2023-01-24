@@ -10,6 +10,6 @@ export interface CellState {
     cellPosition: CellPosition
     value: CellValue
     isPrefilled: boolean
-    isValid: boolean
+    isValid: boolean | undefined
     notes: CellValue[]
 }

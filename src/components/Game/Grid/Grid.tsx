@@ -1,13 +1,24 @@
 import style from "./grid.module.scss"
 import Subgrid from "./Subgrid"
-import { range } from "../../../services/utils"
+import { GameState, SudokuGrid } from "../../../interfaces/GameState"
+import { getAllSubgrids } from "../../../services/subgrid"
 
-export default function Grid() {
-    let subgrids = range(9).map((_, i) => <Subgrid key={i} subgridIndex={i}/>)
+type GridProps = { gameState: GameState }
+
+export default function Grid({ gameState }: GridProps) {
+    let subgrids = getAllSubgrids(gameState.unsolvedGrid)
 
     return (
         <section className={style.outerWrapper}>
-            <div className={style.innerWrapper}>{subgrids}</div>
+            <div className={style.innerWrapper}>
+                {subgrids.map((subgrid, index) => (
+                    <Subgrid
+                        subgrid={subgrid}
+                        subgridIndex={index}
+                        key={index}
+                    />
+                ))}
+            </div>
         </section>
     )
 }
