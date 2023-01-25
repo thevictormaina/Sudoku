@@ -1,4 +1,4 @@
-export type CellValue = number | undefined
+export type CellValue = number | null
 
 export interface CellPosition {
     row: number
@@ -11,5 +11,5 @@ export interface CellState {
     value: CellValue
     isPrefilled: boolean
     isValid: boolean | undefined
-    notes: CellValue[]
+    // notes: CellValue[]
 }

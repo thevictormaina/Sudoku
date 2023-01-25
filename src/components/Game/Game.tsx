@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { CellPosition } from "../../interfaces/CellState"
 import { GameState } from "../../interfaces/GameState"
 import { generateCompleteGrid, unsolveGrid } from "../../services/sudoku"
 import Control from "./Control/Control"
@@ -16,18 +17,33 @@ export default function Game() {
         timeElapsed: 0,
         selectedCell: null,
         numberOfMistakes: 0,
-        useNotes: false,
+        usingNotes: false,
         isPlaying: false,
         isPaused: false,
     })
+
+    function handleSelectCell(cellPosition: CellPosition | null) {
+        setGameState({ ...gameState, selectedCell: cellPosition })
+    }
+
+    function handleUseNotes() {
+        setGameState({ ...gameState, usingNotes: !gameState.usingNotes })
+    }
 
     return (
         <section className={style.container}>
             <h2 hidden>Sudoku Game</h2>
             <GameHeader />
             <main>
-                <Grid gameState={gameState} />
-                <Control />
+                <Grid
+                    unsolvedGrid={gameState.unsolvedGrid}
+                    handleSelectCell={handleSelectCell}
+                    selectedCell={gameState.selectedCell}
+                />
+                <Control
+                    useNotes={handleUseNotes}
+                    usingNotes={gameState.usingNotes}
+                />
             </main>
         </section>
     )

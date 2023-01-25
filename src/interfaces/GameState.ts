@@ -10,7 +10,7 @@ export interface GameState {
     timeElapsed: number // number of seconds
     selectedCell: CellPosition | null
     numberOfMistakes: number
-    useNotes: boolean
+    usingNotes: boolean
     isPlaying: boolean
     isPaused: boolean
 }

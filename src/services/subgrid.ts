@@ -18,10 +18,11 @@ export function getSubgrid(
             const cellDetails: CellState = {
                 cellPosition: { row: rowStart + i, col: colStart + j },
                 value: grid[rowStart + i][colStart + j],
-                isPrefilled: grid[rowStart + i][colStart + j] === null,
+                isPrefilled: grid[rowStart + i][colStart + j] !== null,
                 isValid: grid[rowStart + i][colStart + j] !== null && undefined,
                 notes: []
             }
+
             subgrid.push(cellDetails)
         }
     }

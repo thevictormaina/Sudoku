@@ -165,7 +165,7 @@ export function unsolveGrid(grid: SudokuGrid, emptyCells: number) {
 
         if (unsolvedGrid[i][j]) {
             count -= 1
-            unsolvedGrid[i][j] = undefined
+            unsolvedGrid[i][j] = null
         }
     }
 
